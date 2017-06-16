@@ -1,0 +1,111 @@
+<div class="form_bg" ng-controller="landingController as land"
+	ng-show="authenticated" ng-init="init()">
+	<button type="button" class="btn btn-info footer font "
+		ng-click="logout()" data-toggle="modal" data-target="#logout">
+		<h4 class="font">Logout</h4>
+	</button>
+	<button type="button" class="btn btn-info addNew font "
+		data-toggle="modal" data-target="#addNew">
+		<h4 class="font">Add New Phone Number</h4>
+	</button>
+	<div class="modal fade" id="addNew" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+			<div class="modal-content modalStyle">
+				<div class="modal-header font">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close" ng-click="clean()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h2 class="modal-title" id="myModalLabel">
+						<span class="label label-primary">Add New / Edit</span>
+					</h2>
+				</div>
+				<div class="modal-body" novalidate>
+					<form name="userForm" id="userForm" class="font"
+						ng-submit="saveContact()" novalidate>
+						<fieldset class="form-group">
+							<div
+								ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+								<label for="formGroupExampleInput font">Name</label> <input
+									ng-required="true" type="text" class="form-control"
+									id="formGroupExampleInput" name="name"
+									ng-model="newcontact.name" />
+								<p ng-show="userForm.name.$invalid && userForm.name.$touched">
+									Please enter a valid Name.</p>
+							</div>
+						</fieldset>
+						<fieldset class="form-group font">
+							<label for="formGroupExampleInput1">Email</label> <input
+								ng-required="true" type="email" class="form-control"
+								id="formGroupExampleInput1" name="email"
+								ng-model="newcontact.email" />
+							<p ng-show="userForm.email.$invalid && userForm.email.$touched">
+								Please enter a valid Email.</p>
+						</fieldset>
+						<fieldset class="form-group font">
+							<label for="formGroupExampleInput2">Phone</label> <input
+								ng-required="true" type="number" class="form-control"
+								id="formGroupExampleInput2" name="phone"
+								ng-model="newcontact.phone" />
+							<p ng-show="userForm.ephone.$invalid && userForm.phone.$touched">Please
+								enter a valid Phone number.</p>
+						</fieldset>
+						<input type="hidden" ng-model="newcontact.id" />
+						<fieldset class="form-group font">
+							<button class="btn btn-primary" id="savePhone"
+								ng-disabled="userForm.$invalid" ng-click="saveContact()"
+								data-dismiss="modal">Save</button>
+
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div class="alert alert-success" ng-show="added">
+  <a href="#data" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Phonebook Updated Successfully!</strong> 
+</div>
+
+
+
+	<table class="table table-hover font">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="contact in contacts  track by contact.id">
+
+				<td>{{ contact.name }}</td>
+				<td>{{ contact.email }}</td>
+				<td>{{ contact.phone }}</td>
+				<td>
+					<button type="button" class="btn btn-primary font"
+						ng-click="edit(contact.phone)" data-toggle="modal"
+						data-target="#addNew">Edit</button>
+					<button type="button" class="btn btn-danger font"
+						ng-click="deleted(contact)">Delete</button>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+<div class="form_bg" ng-controller="landingController"
+	ng-show="!authenticated">
+	<center>
+		<button type="button" class="btn btn-info " ng-click="home()">
+			<h4 class="font">Click to Login</h4>
+		</button>
+	</center>
+</div>

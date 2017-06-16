@@ -1,0 +1,132 @@
+body {
+	background-image: url("../images/phonebook.png"); 
+	background: #c0c0c0;
+}
+
+.form_bg {
+	background-color: #c0c0c0;
+	color: #000000;
+	padding-top:60px;
+	padding: 20px;
+	border-radius: 10px;
+	position: absolute;
+	border: 1px solid #fff;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 900px;
+	height: 500px;
+}
+
+h2 {
+	font-family: 'Rye', cursive;
+}
+
+.align-center {
+	text-align: center;
+}
+
+label, button {
+	display: block;
+	text-align: center;
+	line-height: 150%;
+	font-size: 2.00em;
+	
+}
+
+.footer {
+	font-family: 'Rye', cursive;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	background: #c0c0c0;
+	padding: 4px;
+	border-radius: 2px;
+	border: 1px solid #4679AA";
+	color: #000000;
+}
+
+.addNew {
+	font-family: 'Rye', cursive;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	background: #c0c0c0;
+	padding: 4px;
+	border-radius: 2px;
+	border: 1px solid #4679AA";
+	color: #000000;
+}
+
+.font {
+	font-family: 'Rye', cursive;
+	font-size: medium;
+	color: #000000;
+}
+
+.modalStyle {
+	background-color: #c0c0c0;
+	font-family: 'Rye', cursive;
+	font-size: medium;
+	text-align: center;
+}
+
+.ribbon {
+	font-size: 16px !important;
+font-family: 'Rye', cursive;
+	/* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+	width: 50%;
+	position: relative;
+	background: #c0c0c0;
+	color: #fff;
+	text-align: center;
+	padding: 1em 2em; /* Adjust to suit */
+	margin: 2em auto 3em;
+	/* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.ribbon:before, .ribbon:after {
+	content: "";
+	position: absolute;
+	display: block;
+	bottom: -1em;
+	border: 1.5em solid #986794;
+	z-index: -1;
+}
+
+.ribbon:before {
+	left: -2em;
+	border-right-width: 1.5em;
+	border-left-color: transparent;
+	font-family: 'Rye', cursive;
+}
+
+.ribbon:after {
+	right: -2em;
+	border-left-width: 1.5em;
+	border-right-color: transparent;
+	font-family: 'Rye', cursive;
+}
+
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+	content: "";
+	position: absolute;
+	display: block;
+	border-style: solid;
+	border-color: #c0c0c0 transparent transparent transparent;
+	bottom: -1em;
+	font-family: 'Rye', cursive;
+}
+
+.ribbon .ribbon-content:before {
+	left: 0;
+	border-width: 1em 0 0 1em;
+}
+
+.ribbon .ribbon-content:after {
+	right: 0;
+	border-width: 1em 1em 0 0;
+}
+
